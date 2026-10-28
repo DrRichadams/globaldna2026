@@ -1,0 +1,901 @@
+.banner_container {
+  --color-bg: #07111f;
+  --color-primary: #12b8e8;
+  --color-cyan: #67e8f9;
+  --color-text: #f4f8ff;
+  --color-muted: #a6b4c8;
+
+  position: relative;
+  isolation: isolate;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 3rem;
+  min-height: 650px;
+  padding: 100px 8%;
+  overflow: hidden;
+  color: var(--color-text);
+  background:
+    radial-gradient(
+      ellipse at 75% 45%,
+      rgba(18, 184, 232, 0.1),
+      transparent 38%
+    ),
+    linear-gradient(135deg, #07111f 0%, #0a1728 55%, #07111f 100%);
+}
+
+/* Background glow */
+
+.banner_glow {
+  position: absolute;
+  z-index: -1;
+  top: 10%;
+  right: 5%;
+  width: 500px;
+  height: 500px;
+  border-radius: 50%;
+  background: rgba(0, 174, 239, 0.12);
+  filter: blur(110px);
+  pointer-events: none;
+  animation: glow-breathe 7s ease-in-out infinite alternate;
+}
+
+/* Animated SVG grid
+   The SVG is the only grid source, preventing duplicate lines. */
+
+.banner_grid {
+  position: absolute;
+  z-index: -1;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  opacity: 1;
+
+  mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    rgba(0, 0, 0, 0.25) 15%,
+    black 45%,
+    black 100%
+  );
+
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    rgba(0, 0, 0, 0.25) 15%,
+    black 45%,
+    black 100%
+  );
+}
+
+.grid_flow_svg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+  pointer-events: none;
+}
+
+/* Stationary grid tracks */
+
+.grid_tracks path,
+.grid_track {
+  fill: none;
+  stroke: rgba(56, 189, 248, 0.12);
+  stroke-width: 1;
+  vector-effect: non-scaling-stroke;
+}
+
+/* Glowing pulses travelling along grid routes */
+
+.grid_light_path {
+  fill: none;
+  stroke: var(--color-cyan);
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-dasharray: 35 965;
+  stroke-dashoffset: 1000;
+
+  filter: drop-shadow(0 0 3px rgba(103, 232, 249, 0.95))
+    drop-shadow(0 0 7px rgba(34, 211, 238, 0.75))
+    drop-shadow(0 0 15px rgba(34, 211, 238, 0.35));
+
+  animation: grid-pulse-travel 8s linear infinite;
+}
+
+.grid_light_path:nth-of-type(2) {
+  animation-duration: 7s;
+}
+
+.grid_light_path:nth-of-type(3) {
+  animation-duration: 10s;
+}
+
+.grid_light_path:nth-of-type(4) {
+  animation-duration: 9s;
+}
+
+/* Decorative network nodes */
+
+.network_nodes {
+  position: absolute;
+  z-index: -1;
+  inset: 0;
+  pointer-events: none;
+}
+
+.network_nodes span {
+  position: absolute;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--color-cyan);
+  box-shadow:
+    0 0 8px rgba(103, 232, 249, 0.9),
+    0 0 18px rgba(34, 211, 238, 0.55);
+  opacity: 0.65;
+  animation: node-pulse 3s ease-in-out infinite alternate;
+}
+
+.network_nodes span:nth-child(1) {
+  top: 15%;
+  left: 58%;
+}
+
+.network_nodes span:nth-child(2) {
+  top: 30%;
+  left: 83%;
+  animation-delay: -1s;
+}
+
+.network_nodes span:nth-child(3) {
+  top: 52%;
+  left: 67%;
+  animation-delay: -2s;
+}
+
+.network_nodes span:nth-child(4) {
+  top: 70%;
+  left: 92%;
+  animation-delay: -0.5s;
+}
+
+.network_nodes span:nth-child(5) {
+  top: 82%;
+  left: 60%;
+  animation-delay: -1.5s;
+}
+
+.network_nodes span:nth-child(6) {
+  top: 20%;
+  left: 94%;
+  animation-delay: -2.5s;
+}
+
+.network_nodes span:nth-child(7) {
+  top: 60%;
+  left: 78%;
+  animation-delay: -1.2s;
+}
+
+.network_nodes span:nth-child(8) {
+  top: 42%;
+  left: 96%;
+  animation-delay: -0.8s;
+}
+
+/* Main content */
+
+.banner_content {
+  position: relative;
+  z-index: 1;
+  flex: 1 1 55%;
+  max-width: 680px;
+}
+
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 24px;
+  padding: 9px 14px;
+  border: 1px solid rgba(103, 232, 249, 0.2);
+  border-radius: 999px;
+  background: rgba(18, 184, 232, 0.07);
+  color: #a5f3fc;
+  font-size: 0.76rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+}
+
+.eyebrow_dot {
+  width: 7px;
+  height: 7px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  background: var(--color-cyan);
+  box-shadow: 0 0 12px rgba(103, 232, 249, 0.9);
+  animation: node-pulse 2s ease-in-out infinite alternate;
+}
+
+.banner_content h1 {
+  max-width: 720px;
+  margin: 0 0 24px;
+  color: var(--color-text);
+  font-size: clamp(2.8rem, 5.2vw, 5rem);
+  font-weight: 750;
+  line-height: 1.08;
+  letter-spacing: -0.055em;
+}
+
+.banner_content h1 span {
+  color: transparent;
+  background: linear-gradient(100deg, #67e8f9 0%, #22d3ee 45%, #60a5fa 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+}
+
+.banner_description {
+  max-width: 590px;
+  margin: 0 0 32px;
+  color: var(--color-muted);
+  font-size: 1.05rem;
+  line-height: 1.85;
+}
+
+/* Call-to-action buttons */
+
+.banner_actions {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 14px;
+}
+
+.primary_button,
+.secondary_button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  min-height: 54px;
+  padding: 15px 22px;
+  border-radius: 10px;
+  font-size: 0.92rem;
+  font-weight: 700;
+  text-decoration: none;
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease,
+    background 0.25s ease,
+    border-color 0.25s ease;
+}
+
+.primary_button {
+  border: 1px solid transparent;
+  background: linear-gradient(110deg, #0891b2, #0ea5e9);
+  color: #fff;
+  box-shadow: 0 8px 28px rgba(14, 165, 233, 0.2);
+}
+
+.primary_button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 32px rgba(14, 165, 233, 0.35);
+}
+
+.secondary_button {
+  border: 1px solid rgba(148, 163, 184, 0.28);
+  background: rgba(255, 255, 255, 0.025);
+  color: #e2e8f0;
+}
+
+.secondary_button:hover {
+  transform: translateY(-3px);
+  border-color: rgba(103, 232, 249, 0.5);
+  background: rgba(18, 184, 232, 0.08);
+}
+
+.secondary_button span {
+  color: var(--color-cyan);
+  font-size: 1.1rem;
+}
+
+/* Trust indicators */
+
+.trust_points {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 24px;
+  margin-top: 36px;
+}
+
+.trust_item {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  color: #b8c6d9;
+  font-size: 0.85rem;
+}
+
+.trust_item svg {
+  flex-shrink: 0;
+  color: var(--color-cyan);
+}
+
+/* DNA illustration */
+
+.science_visual {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex: 0 1 42%;
+  align-items: center;
+  justify-content: center;
+  min-width: 280px;
+  min-height: 410px;
+}
+
+.visual_orbit {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: min(100%, 390px);
+  aspect-ratio: 1;
+  border: 1px solid rgba(56, 189, 248, 0.18);
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    rgba(14, 165, 233, 0.1),
+    rgba(7, 17, 31, 0.02) 65%
+  );
+  box-shadow:
+    inset 0 0 55px rgba(14, 165, 233, 0.045),
+    0 0 65px rgba(14, 165, 233, 0.04);
+  animation: orbit-float 6s ease-in-out infinite;
+}
+
+.visual_orbit::before,
+.visual_orbit::after {
+  position: absolute;
+  content: "";
+  border: 1px solid rgba(56, 189, 248, 0.13);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.visual_orbit::before {
+  inset: 10%;
+}
+
+.visual_orbit::after {
+  inset: -9%;
+  border-style: dashed;
+  border-color: rgba(56, 189, 248, 0.12);
+  animation: orbit-rotate 35s linear infinite;
+}
+
+.visual_core {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 56%;
+  height: 72%;
+  border: 1px solid rgba(103, 232, 249, 0.2);
+  border-radius: 50%;
+  background: radial-gradient(
+    ellipse,
+    rgba(14, 165, 233, 0.14),
+    rgba(7, 17, 31, 0.05) 72%
+  );
+  box-shadow:
+    0 0 35px rgba(34, 211, 238, 0.08),
+    inset 0 0 35px rgba(34, 211, 238, 0.06);
+}
+
+/* SVG double helix */
+
+.dna_helix {
+  display: block;
+  width: 100%;
+  height: 100%;
+  max-width: 220px;
+  overflow: visible;
+  animation: dna-helix-float 4s ease-in-out infinite;
+  transform-origin: center;
+}
+
+/* DNA connecting rungs */
+
+.dna_rungs {
+  fill: none;
+  stroke: rgba(103, 232, 249, 0.72);
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  filter: drop-shadow(0 0 4px rgba(103, 232, 249, 0.55));
+}
+
+.dna_rungs path {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: dna-rung-glow 3s ease-in-out infinite alternate;
+}
+
+.dna_rungs path:nth-child(2) {
+  animation-delay: -0.3s;
+}
+
+.dna_rungs path:nth-child(3) {
+  animation-delay: -0.6s;
+}
+
+.dna_rungs path:nth-child(4) {
+  animation-delay: -0.9s;
+}
+
+.dna_rungs path:nth-child(5) {
+  animation-delay: -1.2s;
+}
+
+.dna_rungs path:nth-child(6) {
+  animation-delay: -1.5s;
+}
+
+.dna_rungs path:nth-child(7) {
+  animation-delay: -1.8s;
+}
+
+.dna_rungs path:nth-child(8) {
+  animation-delay: -2.1s;
+}
+
+.dna_rungs path:nth-child(9) {
+  animation-delay: -2.4s;
+}
+
+.dna_rungs path:nth-child(10) {
+  animation-delay: -2.7s;
+}
+
+/* First DNA strand */
+
+.dna_strand_a {
+  fill: none;
+  stroke: #67e8f9;
+  stroke-width: 5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  filter: drop-shadow(0 0 4px rgba(103, 232, 249, 0.9))
+    drop-shadow(0 0 9px rgba(34, 211, 238, 0.5));
+}
+
+/* Second DNA strand */
+
+.dna_strand_b {
+  fill: none;
+  stroke: #60a5fa;
+  stroke-width: 5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  filter: drop-shadow(0 0 4px rgba(96, 165, 250, 0.85))
+    drop-shadow(0 0 9px rgba(59, 130, 246, 0.4));
+}
+
+/* Glowing DNA connection points */
+
+.dna_nodes {
+  fill: #e0fbff;
+  stroke: #67e8f9;
+  stroke-width: 2;
+  filter: drop-shadow(0 0 4px rgba(103, 232, 249, 0.9))
+    drop-shadow(0 0 8px rgba(34, 211, 238, 0.7));
+}
+
+.dna_nodes circle {
+  animation: dna-node-glow 2.5s ease-in-out infinite alternate;
+}
+
+.dna_nodes circle:nth-child(even) {
+  animation-delay: -1.2s;
+}
+
+/* Illustration label */
+
+.visual_label {
+  position: absolute;
+  bottom: 4%;
+  left: 50%;
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  width: max-content;
+  max-width: 100%;
+  padding: 12px 16px;
+  border: 1px solid rgba(103, 232, 249, 0.17);
+  border-radius: 8px;
+  background: rgba(7, 17, 31, 0.8);
+  color: #c8f7ff;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  white-space: nowrap;
+  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.2);
+  transform: translateX(-50%);
+  backdrop-filter: blur(12px);
+}
+
+.visual_label_dot {
+  width: 6px;
+  height: 6px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  background: var(--color-cyan);
+  box-shadow: 0 0 10px rgba(103, 232, 249, 0.9);
+}
+
+/* Bottom decorative line */
+
+.banner_bottom_line {
+  position: absolute;
+  right: 8%;
+  bottom: 0;
+  left: 8%;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(56, 189, 248, 0.35),
+    rgba(103, 232, 249, 0.6),
+    rgba(56, 189, 248, 0.35),
+    transparent
+  );
+  opacity: 0.7;
+}
+
+/* Animations */
+
+@keyframes grid-pulse-travel {
+  from {
+    stroke-dashoffset: 1000;
+  }
+
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes glow-breathe {
+  from {
+    opacity: 0.55;
+    transform: scale(0.9);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1.12);
+  }
+}
+
+@keyframes node-pulse {
+  from {
+    opacity: 0.25;
+    transform: scale(0.75);
+  }
+
+  to {
+    opacity: 0.95;
+    transform: scale(1.25);
+  }
+}
+
+@keyframes orbit-float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-12px);
+  }
+}
+
+@keyframes orbit-rotate {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes dna-helix-float {
+  0%,
+  100% {
+    transform: translateY(0) rotate(-2deg);
+  }
+
+  50% {
+    transform: translateY(-7px) rotate(2deg);
+  }
+}
+
+@keyframes dna-rung-glow {
+  from {
+    opacity: 0.55;
+    stroke-width: 1.5;
+  }
+
+  to {
+    opacity: 1;
+    stroke-width: 2.5;
+  }
+}
+
+@keyframes dna-node-glow {
+  from {
+    opacity: 0.65;
+    r: 3;
+  }
+
+  to {
+    opacity: 1;
+    r: 4;
+  }
+}
+
+/* Large tablets and smaller laptops */
+
+@media (max-width: 1100px) {
+  .banner_container {
+    gap: 1.5rem;
+    padding: 90px 6%;
+  }
+
+  .banner_content {
+    flex-basis: 58%;
+  }
+
+  .banner_content h1 {
+    font-size: clamp(2.6rem, 5vw, 4rem);
+  }
+
+  .science_visual {
+    flex-basis: 38%;
+    min-width: 240px;
+  }
+
+  .visual_orbit {
+    width: 100%;
+  }
+
+  .trust_points {
+    gap: 16px;
+  }
+}
+
+/* Tablets */
+
+@media (max-width: 800px) {
+  .banner_container {
+    min-height: auto;
+    padding: 90px 6% 80px;
+  }
+
+  .banner_content {
+    flex-basis: 62%;
+  }
+
+  .banner_content h1 {
+    font-size: clamp(2.4rem, 5.5vw, 3.5rem);
+  }
+
+  .banner_description {
+    font-size: 0.98rem;
+    line-height: 1.75;
+  }
+
+  .science_visual {
+    flex-basis: 34%;
+    min-width: 190px;
+    min-height: 320px;
+  }
+
+  .visual_orbit {
+    width: 100%;
+  }
+
+  .visual_label {
+    bottom: 2%;
+    padding: 10px 12px;
+    font-size: 0.58rem;
+    letter-spacing: 0.08em;
+  }
+
+  .dna_helix {
+    width: 100%;
+    height: 100%;
+  }
+
+  .trust_points {
+    gap: 14px;
+  }
+
+  .trust_item {
+    font-size: 0.78rem;
+  }
+}
+
+/* Mobile layout */
+
+@media (max-width: 600px) {
+  .banner_container {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 20px;
+    padding: 76px 6% 65px;
+  }
+
+  .banner_glow {
+    top: 28%;
+    right: -35%;
+    width: 350px;
+    height: 350px;
+    opacity: 0.7;
+  }
+
+  .banner_grid {
+    mask-image: linear-gradient(
+      to bottom,
+      transparent 0%,
+      black 20%,
+      black 90%,
+      transparent 100%
+    );
+
+    -webkit-mask-image: linear-gradient(
+      to bottom,
+      transparent 0%,
+      black 20%,
+      black 90%,
+      transparent 100%
+    );
+  }
+
+  .banner_content {
+    max-width: 100%;
+  }
+
+  .eyebrow {
+    margin-bottom: 20px;
+    padding: 8px 12px;
+    font-size: 0.68rem;
+  }
+
+  .banner_content h1 {
+    max-width: 100%;
+    margin-bottom: 20px;
+    font-size: clamp(2.45rem, 10vw, 3.7rem);
+    line-height: 1.08;
+  }
+
+  .banner_description {
+    margin-bottom: 26px;
+    font-size: 0.95rem;
+    line-height: 1.75;
+  }
+
+  .banner_actions {
+    align-items: stretch;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .primary_button,
+  .secondary_button {
+    width: 100%;
+    min-height: 52px;
+    padding: 14px 18px;
+    font-size: 0.88rem;
+  }
+
+  .trust_points {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 15px 10px;
+    margin-top: 28px;
+  }
+
+  .trust_item {
+    gap: 7px;
+    font-size: 0.76rem;
+  }
+
+  .science_visual {
+    align-self: center;
+    width: min(78%, 300px);
+    min-width: 0;
+    min-height: auto;
+    aspect-ratio: 1;
+    margin-top: 12px;
+  }
+
+  .visual_orbit {
+    width: 100%;
+  }
+
+  .visual_label {
+    bottom: -3%;
+    font-size: 0.62rem;
+  }
+
+  .dna_helix {
+    width: 100%;
+    height: 100%;
+  }
+
+  .banner_bottom_line {
+    right: 6%;
+    left: 6%;
+  }
+}
+
+/* Small phones */
+
+@media (max-width: 380px) {
+  .banner_container {
+    padding: 65px 5% 55px;
+  }
+
+  .banner_content h1 {
+    font-size: 2.25rem;
+  }
+
+  .banner_description {
+    font-size: 0.9rem;
+  }
+
+  .trust_points {
+    grid-template-columns: 1fr;
+  }
+
+  .science_visual {
+    width: 85%;
+  }
+
+  .visual_label {
+    font-size: 0.55rem;
+  }
+}
+
+/* Respect users who prefer reduced motion */
+
+@media (prefers-reduced-motion: reduce) {
+  .banner_glow,
+  .network_nodes span,
+  .eyebrow_dot,
+  .visual_orbit,
+  .visual_orbit::after,
+  .dna_helix,
+  .dna_rungs path,
+  .dna_nodes circle,
+  .grid_light_path {
+    animation: none !important;
+  }
+
+  .grid_light_path {
+    stroke-dasharray: none;
+    stroke-dashoffset: 0;
+    stroke-opacity: 0.35;
+  }
+
+  .primary_button,
+  .secondary_button {
+    transition: none;
+  }
+}

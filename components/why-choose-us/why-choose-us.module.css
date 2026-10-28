@@ -1,0 +1,469 @@
+.why_section {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  padding: 110px 24px;
+  background: #0d1727;
+  color: #f5f8ff;
+}
+
+.background_glow {
+  position: absolute;
+  z-index: -1;
+  top: 5%;
+  right: -180px;
+  width: 500px;
+  height: 500px;
+  border-radius: 50%;
+  background: rgba(18, 60, 187, 0.12);
+  filter: blur(100px);
+  pointer-events: none;
+}
+
+.why_container {
+  width: 100%;
+  max-width: 1240px;
+  margin: 0 auto;
+}
+
+.section_header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 60px;
+  margin-bottom: 58px;
+}
+
+.header_copy {
+  max-width: 760px;
+}
+
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 11px;
+  margin-bottom: 22px;
+  color: #48d7f5;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 2.5px;
+}
+
+.eyebrow_line {
+  width: 28px;
+  height: 2px;
+  background: #48d7f5;
+  box-shadow: 0 0 12px rgba(72, 215, 245, 0.7);
+}
+
+.section_header h2 {
+  margin: 0;
+  font-size: clamp(2.2rem, 4.5vw, 3.6rem);
+  font-weight: 750;
+  line-height: 1.12;
+  letter-spacing: -1.8px;
+}
+
+.section_header h2 span {
+  color: #48d7f5;
+}
+
+.section_description {
+  max-width: 650px;
+  margin: 22px 0 0;
+  color: #aab7ca;
+  font-size: 1rem;
+  line-height: 1.85;
+}
+
+/* Decorative DNA visual */
+
+.header_visual {
+  position: relative;
+  display: grid;
+  flex: 0 0 190px;
+  place-items: center;
+  width: 190px;
+  height: 190px;
+}
+
+.visual_ring {
+  display: grid;
+  place-items: center;
+  width: 158px;
+  height: 158px;
+  border: 1px solid rgba(72, 215, 245, 0.35);
+  border-radius: 50%;
+  box-shadow:
+    0 0 35px rgba(18, 60, 187, 0.15),
+    inset 0 0 35px rgba(72, 215, 245, 0.04);
+  animation: ring_pulse 4s ease-in-out infinite;
+}
+
+.visual_inner {
+  display: grid;
+  place-items: center;
+  width: 112px;
+  height: 112px;
+  border: 1px solid rgba(72, 215, 245, 0.2);
+  border-radius: 50%;
+  color: #48d7f5;
+  background: rgba(72, 215, 245, 0.04);
+}
+
+.visual_dot,
+.visual_orbit_dot {
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #48d7f5;
+  box-shadow: 0 0 14px #48d7f5;
+}
+
+.visual_dot {
+  top: 23px;
+  right: 35px;
+}
+
+.visual_orbit_dot {
+  bottom: 27px;
+  left: 28px;
+  width: 6px;
+  height: 6px;
+  background: #12b04c;
+  box-shadow: 0 0 12px rgba(18, 176, 76, 0.8);
+}
+
+/* Feature cards */
+
+.reasons_grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 20px;
+}
+
+.reason_card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-height: 260px;
+  padding: 28px;
+  overflow: hidden;
+  border: 1px solid rgba(160, 184, 215, 0.13);
+  border-radius: 16px;
+  background: linear-gradient(
+    145deg,
+    rgba(255, 255, 255, 0.045),
+    rgba(255, 255, 255, 0.012)
+  );
+  transition:
+    transform 250ms ease,
+    border-color 250ms ease,
+    background 250ms ease,
+    box-shadow 250ms ease;
+}
+
+.reason_card:hover {
+  transform: translateY(-6px);
+  border-color: rgba(72, 215, 245, 0.42);
+  background: linear-gradient(
+    145deg,
+    rgba(72, 215, 245, 0.075),
+    rgba(255, 255, 255, 0.018)
+  );
+  box-shadow: 0 16px 38px rgba(0, 0, 0, 0.16);
+}
+
+.card_top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 30px;
+}
+
+.icon_box {
+  display: grid;
+  place-items: center;
+  width: 54px;
+  height: 54px;
+  border: 1px solid rgba(72, 215, 245, 0.23);
+  border-radius: 13px;
+  background: rgba(72, 215, 245, 0.07);
+  color: #48d7f5;
+  transition:
+    color 250ms ease,
+    background 250ms ease,
+    transform 250ms ease;
+}
+
+.reason_card:hover .icon_box {
+  transform: scale(1.06);
+  color: #ffffff;
+  background: #123cbb;
+}
+
+.reason_number {
+  color: rgba(191, 207, 228, 0.42);
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+}
+
+.card_content h3 {
+  margin: 0 0 12px;
+  color: #f5f8ff;
+  font-size: 1.15rem;
+  font-weight: 650;
+  line-height: 1.4;
+}
+
+.card_content p {
+  margin: 0;
+  color: #aab7ca;
+  font-size: 0.91rem;
+  line-height: 1.8;
+}
+
+.card_accent {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  height: 2px;
+  transform: scaleX(0);
+  transform-origin: left;
+  background: linear-gradient(90deg, #48d7f5, #123cbb);
+  transition: transform 300ms ease;
+}
+
+.reason_card:hover .card_accent {
+  transform: scaleX(1);
+}
+
+/* Bottom call to action */
+
+.bottom_cta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 32px;
+  margin-top: 42px;
+  padding: 34px 38px;
+  border: 1px solid rgba(72, 215, 245, 0.2);
+  border-radius: 16px;
+  background: linear-gradient(
+    110deg,
+    rgba(18, 60, 187, 0.17),
+    rgba(72, 215, 245, 0.045)
+  );
+}
+
+.cta_copy {
+  max-width: 690px;
+}
+
+.cta_label {
+  display: block;
+  margin-bottom: 10px;
+  color: #48d7f5;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+}
+
+.cta_copy h3 {
+  margin: 0;
+  color: #f5f8ff;
+  font-size: clamp(1.3rem, 2.4vw, 1.8rem);
+  font-weight: 700;
+  line-height: 1.4;
+}
+
+.cta_copy p {
+  margin: 10px 0 0;
+  color: #aab7ca;
+  font-size: 0.92rem;
+  line-height: 1.7;
+}
+
+.cta_button {
+  display: inline-flex;
+  flex: 0 0 auto;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  min-height: 50px;
+  padding: 0 22px;
+  border: 1px solid #48d7f5;
+  border-radius: 8px;
+  background: #48d7f5;
+  color: #0d1727;
+  font-size: 0.9rem;
+  font-weight: 700;
+  text-decoration: none;
+  transition:
+    background 200ms ease,
+    color 200ms ease,
+    transform 200ms ease,
+    box-shadow 200ms ease;
+}
+
+.cta_button:hover {
+  transform: translateY(-2px);
+  background: transparent;
+  color: #48d7f5;
+  box-shadow: 0 0 24px rgba(72, 215, 245, 0.12);
+}
+
+.cta_button:focus-visible {
+  outline: 2px solid #ffffff;
+  outline-offset: 4px;
+}
+
+/* Animations */
+
+@keyframes ring_pulse {
+  0%,
+  100% {
+    transform: scale(1);
+    box-shadow:
+      0 0 35px rgba(18, 60, 187, 0.15),
+      inset 0 0 35px rgba(72, 215, 245, 0.04);
+  }
+
+  50% {
+    transform: scale(1.035);
+    box-shadow:
+      0 0 42px rgba(72, 215, 245, 0.1),
+      inset 0 0 35px rgba(72, 215, 245, 0.07);
+  }
+}
+
+/* Responsive layout */
+
+@media (max-width: 1000px) {
+  .why_section {
+    padding: 85px 24px;
+  }
+
+  .section_header {
+    gap: 28px;
+    margin-bottom: 42px;
+  }
+
+  .header_visual {
+    flex-basis: 150px;
+    width: 150px;
+    height: 150px;
+  }
+
+  .visual_ring {
+    width: 132px;
+    height: 132px;
+  }
+
+  .visual_inner {
+    width: 94px;
+    height: 94px;
+  }
+
+  .reasons_grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .reason_card {
+    min-height: 245px;
+  }
+
+  .bottom_cta {
+    padding: 30px;
+  }
+}
+
+@media (max-width: 640px) {
+  .why_section {
+    padding: 72px 18px;
+  }
+
+  .section_header {
+    display: block;
+    margin-bottom: 34px;
+  }
+
+  .section_header h2 {
+    font-size: clamp(2rem, 8vw, 2.7rem);
+    letter-spacing: -1px;
+  }
+
+  .section_description {
+    margin-top: 16px;
+    font-size: 0.94rem;
+    line-height: 1.8;
+  }
+
+  .header_visual {
+    display: none;
+  }
+
+  .eyebrow {
+    margin-bottom: 18px;
+    font-size: 0.68rem;
+    letter-spacing: 1.8px;
+  }
+
+  .reasons_grid {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+
+  .reason_card {
+    min-height: auto;
+    padding: 23px;
+    border-radius: 13px;
+  }
+
+  .card_top {
+    margin-bottom: 22px;
+  }
+
+  .card_content h3 {
+    font-size: 1.08rem;
+  }
+
+  .card_content p {
+    font-size: 0.9rem;
+  }
+
+  .bottom_cta {
+    align-items: stretch;
+    flex-direction: column;
+    gap: 24px;
+    margin-top: 28px;
+    padding: 25px 22px;
+  }
+
+  .cta_button {
+    width: 100%;
+    box-sizing: border-box;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .visual_ring {
+    animation: none;
+  }
+
+  .reason_card,
+  .icon_box,
+  .card_accent,
+  .cta_button {
+    transition: none;
+  }
+
+  .reason_card:hover,
+  .icon_box:hover,
+  .cta_button:hover {
+    transform: none;
+  }
+}
