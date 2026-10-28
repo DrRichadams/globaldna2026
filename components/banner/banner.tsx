@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { MessageCircle, ShieldCheck, Microscope, Clock3 } from "lucide-react";
 import styles from "./banner.module.css";
+import WhatsAppLink from "../btns/WhatsAppLink";
 
 export default function Banner() {
   return (
@@ -71,15 +72,24 @@ export default function Banner() {
         </p>
 
         <div className={styles.banner_actions}>
-          <Link
-            href="https://wa.me/YOURWHATSAPPNUMBER"
+          {/* <Link
+            href="https://wa.me/263719428436"
             className={styles.primary_button}
             target="_blank"
             rel="noopener noreferrer"
           >
             <MessageCircle size={20} aria-hidden="true" />
             <span>Chat with us on WhatsApp</span>
-          </Link>
+          </Link> */}
+          <WhatsAppLink
+            href="https://wa.me/263719428436"
+            className={styles.primary_button}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <MessageCircle size={20} aria-hidden="true" />
+            <span>Chat with us on WhatsApp</span>
+          </WhatsAppLink>
 
           <Link href="#categories" className={styles.secondary_button}>
             Explore our services

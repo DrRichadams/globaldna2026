@@ -4,7 +4,7 @@ import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { MessageCircle } from "lucide-react";
-import logo from "../../public/logo.png";
+import logo from "../../public/logo3.png";
 import styles from "./navigation.module.css";
 
 const navLinks = [

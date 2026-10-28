@@ -19,6 +19,9 @@ import {
   FiShield,
 } from "react-icons/fi";
 import styles from "./footer.module.css";
+import logo from "../../public/logo3.png";
+import Image from "next/image";
+import WhatsAppLink from "../btns/WhatsAppLink";
 
 const companyLinks = [
   { label: "About Global DNA", href: "/about" },
@@ -125,10 +128,10 @@ export default function Footer() {
           </p>
 
           <div className={styles.ctaActions}>
-            <Link href="/contact" className={styles.primaryButton}>
+            <WhatsAppLink href="/contact" className={styles.primaryButton}>
               Get in Touch
               <FiArrowRight aria-hidden="true" />
-            </Link>
+            </WhatsAppLink>
 
             <Link
               href="#dna-testing-services"
@@ -176,7 +179,7 @@ export default function Footer() {
         <div className={styles.footerGrid}>
           {/* Brand */}
           <div className={styles.brandColumn}>
-            <Link
+            {/* <Link
               href="/"
               className={styles.brand}
               aria-label="Global DNA home"
@@ -193,6 +196,27 @@ export default function Footer() {
                   KNOW THE TRUTH. FIND CLARITY.
                 </span>
               </span>
+              <span className={styles.brandText}>
+                <span className={styles.brandName}>
+                  GLOBAL<span>DNA</span>
+                </span>
+                <span className={styles.brandTagline}>
+                  KNOW THE TRUTH. FIND CLARITY.
+                </span>
+              </span>
+            </Link> */}
+            <Link
+              href="/"
+              className={styles.brand}
+              aria-label="Global DNA home"
+            >
+              <Image
+                src={logo}
+                alt="Global DNA"
+                width={135}
+                height={70}
+                priority
+              />
             </Link>
 
             <p className={styles.brandDescription}>
