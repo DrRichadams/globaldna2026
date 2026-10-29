@@ -1,0 +1,1681 @@
+/* =========================================================
+   GLOBAL DNA | PRICING PAGE
+   Dark navy, cyan accents, responsive CSS Modules
+========================================================= */
+
+.pricingPage {
+  --navy: #0b1422;
+  --navy-light: #101e30;
+  --navy-card: #122238;
+  --cyan: #37d8f5;
+  --cyan-dark: #0db8d8;
+  --blue: #4285ff;
+  --text: #19283b;
+  --muted: #63748a;
+  --light-bg: #f5f8fc;
+  --border: #e3eaf3;
+  --white: #ffffff;
+
+  width: 100%;
+  overflow: hidden;
+  color: var(--text);
+  background: var(--white);
+}
+
+.pricingPage *,
+.pricingPage *::before,
+.pricingPage *::after {
+  box-sizing: border-box;
+}
+
+.pricingPage a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.pricingPage button {
+  font: inherit;
+}
+
+.pricingPage svg {
+  flex-shrink: 0;
+}
+
+.sectionContainer {
+  width: min(1180px, calc(100% - 48px));
+  margin-inline: auto;
+}
+
+.sectionHeading {
+  max-width: 760px;
+  margin: 0 auto 48px;
+  text-align: center;
+}
+
+.sectionHeading h2 {
+  margin: 14px 0 16px;
+  color: var(--navy);
+  font-size: clamp(2rem, 4vw, 3.15rem);
+  font-weight: 800;
+  line-height: 1.15;
+  letter-spacing: -0.045em;
+}
+
+.sectionHeading h2 span {
+  color: #079fbe;
+}
+
+.sectionHeading > p {
+  max-width: 660px;
+  margin: 0 auto;
+  color: var(--muted);
+  font-size: 1.05rem;
+  line-height: 1.85;
+}
+
+.sectionEyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  color: #079fbe;
+  font-size: 0.76rem;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  line-height: 1.6;
+}
+
+/* =========================================================
+   HERO
+========================================================= */
+
+.hero {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  color: var(--white);
+  background:
+    radial-gradient(
+      ellipse at 76% 48%,
+      rgba(20, 117, 166, 0.18),
+      transparent 42%
+    ),
+    linear-gradient(125deg, #091321 0%, #101e30 60%, #0b1929 100%);
+}
+
+.heroGrid {
+  position: absolute;
+  z-index: -2;
+  inset: 0;
+  pointer-events: none;
+  background-image:
+    linear-gradient(rgba(55, 216, 245, 0.065) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(55, 216, 245, 0.065) 1px, transparent 1px);
+  background-size: 48px 48px;
+  mask-image: linear-gradient(to right, transparent, #000 30%, #000 100%);
+}
+
+.heroGlow {
+  position: absolute;
+  z-index: -1;
+  top: 10%;
+  right: 4%;
+  width: 540px;
+  height: 540px;
+  border-radius: 50%;
+  pointer-events: none;
+  background: rgba(28, 189, 230, 0.08);
+  filter: blur(90px);
+}
+
+.heroInner {
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(320px, 0.9fr);
+  align-items: center;
+  gap: 50px;
+  width: min(1180px, calc(100% - 48px));
+  min-height: 570px;
+  margin-inline: auto;
+  padding-block: 78px 88px;
+}
+
+.heroContent {
+  position: relative;
+  z-index: 2;
+  max-width: 660px;
+}
+
+.breadcrumb {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 11px;
+  margin-bottom: 34px;
+  color: #a7b8cb;
+  font-size: 0.83rem;
+}
+
+.breadcrumb a {
+  transition: color 180ms ease;
+}
+
+.breadcrumb a:hover {
+  color: var(--cyan);
+}
+
+.breadcrumb span[aria-current="page"] {
+  color: var(--cyan);
+}
+
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 20px;
+  color: var(--cyan);
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.15em;
+}
+
+.eyebrow svg {
+  font-size: 1.1rem;
+}
+
+.heroContent h1 {
+  max-width: 690px;
+  margin: 0;
+  color: var(--white);
+  font-size: clamp(2.6rem, 5.2vw, 4.5rem);
+  font-weight: 800;
+  line-height: 1.06;
+  letter-spacing: -0.055em;
+}
+
+.heroContent h1 span {
+  display: block;
+  margin-top: 8px;
+  color: var(--cyan);
+}
+
+.heroDescription {
+  max-width: 590px;
+  margin: 25px 0 30px;
+  color: #bac7d7;
+  font-size: 1.05rem;
+  line-height: 1.85;
+}
+
+.heroActions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 14px;
+}
+
+.primaryButton,
+.secondaryButton,
+.introButton,
+.serviceButton,
+.faqContactButton,
+.finalCtaButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 11px;
+  min-height: 52px;
+  border: 1px solid transparent;
+  border-radius: 9px;
+  font-size: 0.94rem;
+  font-weight: 750;
+  line-height: 1.35;
+  text-align: center;
+  cursor: pointer;
+  transition:
+    transform 180ms ease,
+    background-color 180ms ease,
+    border-color 180ms ease,
+    box-shadow 180ms ease,
+    color 180ms ease;
+}
+
+.primaryButton {
+  padding: 15px 23px;
+  color: var(--navy) !important;
+  background: var(--cyan);
+  box-shadow: 0 8px 28px rgba(55, 216, 245, 0.13);
+}
+
+.primaryButton:hover {
+  background: #75e7fa;
+  box-shadow: 0 10px 32px rgba(55, 216, 245, 0.23);
+  transform: translateY(-2px);
+}
+
+.secondaryButton {
+  padding: 14px 21px;
+  color: var(--white) !important;
+  border-color: rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.045);
+}
+
+.secondaryButton:hover {
+  border-color: var(--cyan);
+  background: rgba(55, 216, 245, 0.08);
+  transform: translateY(-2px);
+}
+
+.heroTrust {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  margin-top: 28px;
+}
+
+.heroTrust span {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: #bdcada;
+  font-size: 0.83rem;
+}
+
+.heroTrust svg {
+  color: var(--cyan);
+  font-size: 0.85rem;
+}
+
+.heroBottomLine {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(55, 216, 245, 0.7),
+    transparent
+  );
+}
+
+/* Hero DNA illustration */
+
+.heroVisual {
+  position: relative;
+  display: grid;
+  place-items: center;
+  min-width: 0;
+  min-height: 390px;
+}
+
+.dnaVisual {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  place-items: center;
+  width: clamp(190px, 24vw, 290px);
+  aspect-ratio: 1;
+  color: var(--cyan);
+  border: 1px solid rgba(55, 216, 245, 0.27);
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    rgba(55, 216, 245, 0.14),
+    rgba(55, 216, 245, 0.025) 65%,
+    transparent 70%
+  );
+  box-shadow:
+    0 0 65px rgba(55, 216, 245, 0.09),
+    inset 0 0 55px rgba(55, 216, 245, 0.045);
+  animation: dnaFloat 6s ease-in-out infinite;
+}
+
+.dnaVisual svg {
+  width: 53%;
+  height: 53%;
+  filter: drop-shadow(0 0 15px rgba(55, 216, 245, 0.55));
+  animation: dnaPulse 4s ease-in-out infinite;
+}
+
+.dnaOrbit {
+  position: absolute;
+  z-index: 1;
+  width: 330px;
+  height: 330px;
+  border: 1px solid rgba(55, 216, 245, 0.19);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.dnaOrbit::before,
+.dnaOrbit::after {
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--cyan);
+  box-shadow: 0 0 15px var(--cyan);
+  content: "";
+}
+
+.dnaOrbit::before {
+  top: 18%;
+  left: 10%;
+}
+
+.dnaOrbit::after {
+  right: 5%;
+  bottom: 24%;
+}
+
+.dnaOrbitOne {
+  animation: orbitRotate 24s linear infinite;
+}
+
+.dnaOrbitTwo {
+  width: 390px;
+  height: 260px;
+  border-color: rgba(66, 133, 255, 0.25);
+  transform: rotate(-36deg);
+  animation: orbitRotateReverse 28s linear infinite;
+}
+
+.floatingCard {
+  position: absolute;
+  z-index: 3;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  max-width: 255px;
+  padding: 15px 17px;
+  border: 1px solid rgba(150, 190, 220, 0.2);
+  border-radius: 12px;
+  background: rgba(13, 29, 47, 0.88);
+  box-shadow: 0 18px 55px rgba(0, 0, 0, 0.22);
+  backdrop-filter: blur(14px);
+}
+
+.floatingCardTop {
+  top: 10%;
+  right: -2%;
+}
+
+.floatingCardBottom {
+  bottom: 9%;
+  left: -2%;
+}
+
+.floatingIcon {
+  display: grid;
+  flex: 0 0 42px;
+  place-items: center;
+  width: 42px;
+  height: 42px;
+  color: var(--cyan);
+  border: 1px solid rgba(55, 216, 245, 0.22);
+  border-radius: 10px;
+  background: rgba(55, 216, 245, 0.08);
+  font-size: 1.15rem;
+}
+
+.floatingCard strong,
+.floatingCard small {
+  display: block;
+}
+
+.floatingCard strong {
+  color: var(--white);
+  font-size: 0.82rem;
+  font-weight: 750;
+}
+
+.floatingCard small {
+  margin-top: 5px;
+  color: #a7b8cb;
+  font-size: 0.72rem;
+  line-height: 1.5;
+}
+
+/* =========================================================
+   INTRODUCTION
+========================================================= */
+
+.pricingIntro {
+  padding: 68px 0 34px;
+  background: var(--white);
+}
+
+.introPanel {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  padding: 30px;
+  border: 1px solid #d9edf3;
+  border-radius: 16px;
+  background: linear-gradient(115deg, #f0fbfe, #f8fbff 70%);
+}
+
+.introIcon {
+  display: grid;
+  flex: 0 0 62px;
+  place-items: center;
+  width: 62px;
+  height: 62px;
+  color: #078eac;
+  border: 1px solid #ccecf3;
+  border-radius: 14px;
+  background: #e1f8fd;
+  font-size: 1.65rem;
+}
+
+.introContent {
+  flex: 1;
+  min-width: 0;
+}
+
+.introContent h2 {
+  margin: 7px 0 9px;
+  color: var(--navy);
+  font-size: clamp(1.35rem, 2.5vw, 1.85rem);
+  font-weight: 800;
+  line-height: 1.25;
+  letter-spacing: -0.025em;
+}
+
+.introContent p {
+  max-width: 730px;
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.94rem;
+  line-height: 1.8;
+}
+
+.introButton {
+  flex-shrink: 0;
+  padding: 14px 19px;
+  color: var(--white) !important;
+  background: var(--navy);
+}
+
+.introButton:hover {
+  background: #173550;
+  transform: translateY(-2px);
+}
+
+/* =========================================================
+   TESTING SERVICES
+========================================================= */
+
+.servicesSection {
+  padding: 76px 0 88px;
+  background: var(--light-bg);
+  scroll-margin-top: 40px;
+}
+
+.servicesGrid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 23px;
+}
+
+.serviceCard {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  min-height: 315px;
+  padding: 27px;
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  background: var(--white);
+  box-shadow: 0 6px 24px rgba(16, 38, 66, 0.035);
+  transition:
+    transform 200ms ease,
+    border-color 200ms ease,
+    box-shadow 200ms ease;
+}
+
+.serviceCard:hover {
+  border-color: rgba(13, 184, 216, 0.5);
+  box-shadow: 0 18px 42px rgba(16, 38, 66, 0.09);
+  transform: translateY(-5px);
+}
+
+.serviceIcon {
+  display: grid;
+  place-items: center;
+  width: 55px;
+  height: 55px;
+  margin-bottom: 23px;
+  color: #079fbe;
+  border: 1px solid #d1f0f6;
+  border-radius: 13px;
+  background: #eafaff;
+  font-size: 1.55rem;
+  transition:
+    color 180ms ease,
+    background-color 180ms ease;
+}
+
+.serviceCard:hover .serviceIcon {
+  color: var(--white);
+  background: #079fbe;
+}
+
+.serviceCard h3 {
+  margin: 0 0 12px;
+  color: var(--navy);
+  font-size: 1.18rem;
+  font-weight: 800;
+  line-height: 1.4;
+  letter-spacing: -0.02em;
+}
+
+.serviceDescription {
+  flex: 1;
+  margin: 0 0 25px;
+  color: var(--muted);
+  font-size: 0.91rem;
+  line-height: 1.8;
+}
+
+.serviceCardFooter {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 13px;
+  padding-top: 18px;
+  border-top: 1px solid #edf1f6;
+}
+
+.quoteLabel {
+  color: #566a80;
+  font-size: 0.81rem;
+  font-weight: 700;
+}
+
+.serviceButton {
+  min-height: 42px;
+  padding: 10px 14px;
+  color: var(--navy) !important;
+  background: var(--cyan);
+  font-size: 0.82rem;
+}
+
+.serviceButton:hover {
+  background: #8cecff;
+  box-shadow: 0 5px 18px rgba(55, 216, 245, 0.19);
+  transform: translateY(-2px);
+}
+
+.serviceButton svg {
+  font-size: 0.75rem;
+}
+
+.servicesDisclaimer {
+  max-width: 850px;
+  margin: 27px auto 0;
+  color: #728197;
+  font-size: 0.82rem;
+  line-height: 1.8;
+  text-align: center;
+}
+
+/* =========================================================
+   PRICING FACTORS
+========================================================= */
+
+.factorsSection {
+  padding: 88px 0;
+  background: var(--white);
+}
+
+.factorsGrid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 20px;
+}
+
+.factorCard {
+  padding: 26px 23px;
+  border: 1px solid var(--border);
+  border-radius: 13px;
+  background: #fff;
+  transition:
+    border-color 180ms ease,
+    background-color 180ms ease,
+    transform 180ms ease;
+}
+
+.factorCard:hover {
+  border-color: #b9eaf4;
+  background: #fbfeff;
+  transform: translateY(-3px);
+}
+
+.factorIcon {
+  display: grid;
+  place-items: center;
+  width: 49px;
+  height: 49px;
+  margin-bottom: 19px;
+  color: #078eac;
+  border-radius: 12px;
+  background: #eafaff;
+  font-size: 1.35rem;
+}
+
+.factorCard h3 {
+  margin: 0 0 10px;
+  color: var(--navy);
+  font-size: 1rem;
+  font-weight: 800;
+  line-height: 1.5;
+}
+
+.factorCard p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.87rem;
+  line-height: 1.8;
+}
+
+.factorsNote {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 15px;
+  margin-top: 28px;
+  padding: 22px 25px;
+  border: 1px solid #dbeaf3;
+  border-radius: 12px;
+  background: #f7fbfe;
+}
+
+.factorsNote > svg {
+  color: #079fbe;
+  font-size: 1.35rem;
+}
+
+.factorsNote p {
+  flex: 1;
+  min-width: 200px;
+  margin: 0;
+  color: #50637a;
+  font-size: 0.9rem;
+  line-height: 1.7;
+}
+
+.textLink {
+  display: inline-flex;
+  flex-shrink: 0;
+  align-items: center;
+  gap: 8px;
+  color: #078eac !important;
+  font-size: 0.88rem;
+  font-weight: 800;
+  line-height: 1.6;
+  transition:
+    color 180ms ease,
+    gap 180ms ease;
+}
+
+.textLink:hover {
+  gap: 12px;
+  color: #056a83 !important;
+}
+
+.textLink svg {
+  font-size: 0.8rem;
+}
+
+/* =========================================================
+   QUOTE PROCESS
+========================================================= */
+
+.processSection {
+  position: relative;
+  overflow: hidden;
+  padding: 88px 0;
+  background:
+    radial-gradient(
+      ellipse at 50% 100%,
+      rgba(55, 216, 245, 0.075),
+      transparent 55%
+    ),
+    var(--navy);
+}
+
+.processSection .sectionHeading h2 {
+  color: var(--white);
+}
+
+.processSection .sectionHeading > p {
+  color: #aabbd0;
+}
+
+.processSection .sectionEyebrow {
+  color: var(--cyan);
+}
+
+.processGrid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 25px;
+}
+
+.processCard {
+  position: relative;
+  min-width: 0;
+  padding: 28px 25px;
+  border: 1px solid rgba(171, 205, 232, 0.15);
+  border-radius: 13px;
+  background: rgba(255, 255, 255, 0.035);
+  transition:
+    border-color 180ms ease,
+    background-color 180ms ease,
+    transform 180ms ease;
+}
+
+.processCard:hover {
+  border-color: rgba(55, 216, 245, 0.45);
+  background: rgba(55, 216, 245, 0.045);
+  transform: translateY(-3px);
+}
+
+.processNumber {
+  display: grid;
+  place-items: center;
+  width: 58px;
+  height: 58px;
+  margin-bottom: 24px;
+  color: var(--cyan);
+  border: 1px solid rgba(55, 216, 245, 0.4);
+  border-radius: 14px;
+  background: rgba(55, 216, 245, 0.08);
+  font-size: 1.3rem;
+  font-weight: 850;
+  letter-spacing: -0.03em;
+}
+
+.processCard h3 {
+  margin: 0 0 12px;
+  color: var(--white);
+  font-size: 1.18rem;
+  font-weight: 800;
+  line-height: 1.45;
+}
+
+.processCard p {
+  margin: 0;
+  color: #afbed0;
+  font-size: 0.91rem;
+  line-height: 1.85;
+}
+
+.processConnector {
+  position: absolute;
+  top: 56px;
+  right: -27px;
+  z-index: 2;
+  width: 28px;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    rgba(55, 216, 245, 0.8),
+    rgba(55, 216, 245, 0.1)
+  );
+}
+
+.processAction {
+  display: flex;
+  justify-content: center;
+  margin-top: 37px;
+}
+
+/* =========================================================
+   FAQ
+========================================================= */
+
+.faqSection {
+  padding: 92px 0;
+  background: var(--light-bg);
+  scroll-margin-top: 40px;
+}
+
+.faqLayout {
+  display: grid;
+  grid-template-columns: minmax(260px, 0.78fr) minmax(0, 1.22fr);
+  align-items: start;
+  gap: 60px;
+}
+
+.faqIntro {
+  position: sticky;
+  top: 30px;
+}
+
+.faqIntro > h2 {
+  margin: 15px 0 17px;
+  color: var(--navy);
+  font-size: clamp(2rem, 3.7vw, 3rem);
+  font-weight: 800;
+  line-height: 1.13;
+  letter-spacing: -0.045em;
+}
+
+.faqIntro > h2 span {
+  display: block;
+  color: #079fbe;
+}
+
+.faqIntro > p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.97rem;
+  line-height: 1.85;
+}
+
+.faqContactCard {
+  margin-top: 34px;
+  padding: 24px;
+  border: 1px solid #dbe8f1;
+  border-radius: 13px;
+  background: var(--white);
+  box-shadow: 0 8px 26px rgba(16, 38, 66, 0.035);
+}
+
+.faqContactIcon {
+  display: grid;
+  place-items: center;
+  width: 48px;
+  height: 48px;
+  margin-bottom: 17px;
+  color: #078eac;
+  border-radius: 12px;
+  background: #eafaff;
+  font-size: 1.45rem;
+}
+
+.faqContactCard h3 {
+  margin: 0 0 8px;
+  color: var(--navy);
+  font-size: 1.1rem;
+  font-weight: 800;
+}
+
+.faqContactCard p {
+  margin: 0 0 20px;
+  color: var(--muted);
+  font-size: 0.88rem;
+  line-height: 1.8;
+}
+
+.faqContactButton {
+  width: 100%;
+  padding: 13px 16px;
+  color: var(--white) !important;
+  background: var(--navy);
+  font-size: 0.88rem;
+}
+
+.faqContactButton:hover {
+  background: #173550;
+  transform: translateY(-2px);
+}
+
+.faqList {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  min-width: 0;
+}
+
+.faqItem {
+  overflow: hidden;
+  border: 1px solid #e0e8f1;
+  border-radius: 12px;
+  background: var(--white);
+  transition:
+    border-color 180ms ease,
+    box-shadow 180ms ease;
+}
+
+.faqItemOpen {
+  border-color: #b9eaf4;
+  box-shadow: 0 7px 24px rgba(16, 38, 66, 0.045);
+}
+
+.faqQuestionHeading {
+  margin: 0;
+  font-size: inherit;
+}
+
+.faqQuestion {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  width: 100%;
+  min-height: 72px;
+  padding: 20px 23px;
+  border: 0;
+  color: var(--navy);
+  background: transparent;
+  font-size: 0.96rem;
+  font-weight: 750;
+  line-height: 1.55;
+  text-align: left;
+  cursor: pointer;
+}
+
+.faqQuestion:hover {
+  color: #078eac;
+}
+
+.faqQuestion:focus-visible {
+  outline: 3px solid rgba(13, 184, 216, 0.55);
+  outline-offset: -4px;
+}
+
+.faqChevron {
+  width: 19px;
+  height: 19px;
+  color: #078eac;
+  transition: transform 200ms ease;
+}
+
+.faqItemOpen .faqChevron {
+  transform: rotate(180deg);
+}
+
+.faqAnswer {
+  padding: 0 23px 22px;
+}
+
+.faqAnswer[hidden] {
+  display: none;
+}
+
+.faqAnswer p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.91rem;
+  line-height: 1.9;
+}
+
+.faqAnswer .textLink {
+  margin-top: 15px;
+}
+
+/* =========================================================
+   FINAL CALL TO ACTION
+========================================================= */
+
+.finalCtaSection {
+  padding: 75px 0 90px;
+  background: var(--white);
+}
+
+.finalCta {
+  position: relative;
+  isolation: isolate;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 35px;
+  overflow: hidden;
+  min-height: 335px;
+  padding: 54px 58px;
+  border: 1px solid rgba(55, 216, 245, 0.17);
+  border-radius: 20px;
+  color: var(--white);
+  background: linear-gradient(110deg, #0b1422 0%, #10243a 65%, #0b1b2c 100%);
+}
+
+.finalCtaGlow {
+  position: absolute;
+  z-index: -1;
+  top: -180px;
+  right: 7%;
+  width: 440px;
+  height: 440px;
+  border-radius: 50%;
+  background: rgba(55, 216, 245, 0.12);
+  filter: blur(80px);
+  pointer-events: none;
+}
+
+.finalCtaContent {
+  position: relative;
+  z-index: 2;
+  max-width: 720px;
+}
+
+.finalCtaEyebrow {
+  display: inline-block;
+  margin-bottom: 17px;
+  color: var(--cyan);
+  font-size: 0.76rem;
+  font-weight: 850;
+  letter-spacing: 0.15em;
+}
+
+.finalCtaContent h2 {
+  max-width: 680px;
+  margin: 0;
+  color: var(--white);
+  font-size: clamp(2rem, 4vw, 3.3rem);
+  font-weight: 800;
+  line-height: 1.13;
+  letter-spacing: -0.045em;
+}
+
+.finalCtaContent h2 span {
+  display: block;
+  margin-top: 7px;
+  color: var(--cyan);
+}
+
+.finalCtaContent > p {
+  max-width: 610px;
+  margin: 20px 0 26px;
+  color: #b8c8d9;
+  font-size: 0.98rem;
+  line-height: 1.85;
+}
+
+.finalCtaButton {
+  flex-wrap: wrap;
+  padding: 15px 21px;
+  color: var(--navy) !important;
+  background: var(--cyan);
+}
+
+.finalCtaButton:hover {
+  background: #80e9fa;
+  box-shadow: 0 8px 30px rgba(55, 216, 245, 0.2);
+  transform: translateY(-2px);
+}
+
+.finalCtaFootnote {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  margin-top: 21px;
+  color: #a8bbce;
+  font-size: 0.81rem;
+  line-height: 1.6;
+}
+
+.finalCtaFootnote svg {
+  color: var(--cyan);
+}
+
+.finalCtaVisual {
+  display: grid;
+  flex: 0 0 190px;
+  place-items: center;
+  width: 190px;
+  height: 190px;
+  color: var(--cyan);
+  border: 1px solid rgba(55, 216, 245, 0.2);
+  border-radius: 50%;
+  background: rgba(55, 216, 245, 0.045);
+  box-shadow:
+    0 0 65px rgba(55, 216, 245, 0.07),
+    inset 0 0 40px rgba(55, 216, 245, 0.045);
+}
+
+.finalCtaVisual svg {
+  width: 100px;
+  height: 100px;
+  filter: drop-shadow(0 0 15px rgba(55, 216, 245, 0.3));
+  animation: dnaFloat 6s ease-in-out infinite;
+}
+
+/* =========================================================
+   ANIMATIONS
+========================================================= */
+
+@keyframes dnaFloat {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-9px);
+  }
+}
+
+@keyframes dnaPulse {
+  0%,
+  100% {
+    opacity: 0.88;
+    filter: drop-shadow(0 0 10px rgba(55, 216, 245, 0.35));
+  }
+
+  50% {
+    opacity: 1;
+    filter: drop-shadow(0 0 21px rgba(55, 216, 245, 0.7));
+  }
+}
+
+@keyframes orbitRotate {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes orbitRotateReverse {
+  from {
+    transform: rotate(-36deg);
+  }
+
+  to {
+    transform: rotate(-396deg);
+  }
+}
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 1050px) {
+  .heroInner {
+    grid-template-columns: minmax(0, 1.1fr) minmax(260px, 0.9fr);
+    gap: 20px;
+  }
+
+  .heroVisual {
+    transform: scale(0.92);
+  }
+
+  .floatingCardTop {
+    right: -4%;
+  }
+
+  .floatingCardBottom {
+    left: -4%;
+  }
+
+  .servicesGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .factorsGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .faqLayout {
+    gap: 35px;
+  }
+
+  .finalCta {
+    padding: 45px;
+  }
+
+  .finalCtaVisual {
+    flex-basis: 150px;
+    width: 150px;
+    height: 150px;
+  }
+
+  .finalCtaVisual svg {
+    width: 80px;
+    height: 80px;
+  }
+}
+
+/* =========================================================
+   MOBILE / SMALL TABLET
+========================================================= */
+
+@media (max-width: 760px) {
+  .sectionContainer {
+    width: min(100% - 36px, 600px);
+  }
+
+  .sectionHeading {
+    margin-bottom: 34px;
+  }
+
+  .sectionHeading h2 {
+    font-size: clamp(1.85rem, 7vw, 2.6rem);
+  }
+
+  .sectionHeading > p {
+    font-size: 0.95rem;
+    line-height: 1.8;
+  }
+
+  .heroInner {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 10px;
+    width: min(100% - 36px, 600px);
+    min-height: auto;
+    padding-block: 44px 45px;
+  }
+
+  .heroContent {
+    max-width: none;
+  }
+
+  .breadcrumb {
+    margin-bottom: 27px;
+  }
+
+  .heroContent h1 {
+    font-size: clamp(2.35rem, 8.5vw, 3.5rem);
+  }
+
+  .heroDescription {
+    margin: 20px 0 24px;
+    font-size: 0.97rem;
+  }
+
+  .heroVisual {
+    min-height: 300px;
+    margin-top: 12px;
+    transform: none;
+  }
+
+  .dnaVisual {
+    width: 205px;
+  }
+
+  .dnaOrbit {
+    width: 245px;
+    height: 245px;
+  }
+
+  .dnaOrbitTwo {
+    width: 290px;
+    height: 205px;
+  }
+
+  .floatingCard {
+    gap: 9px;
+    max-width: 205px;
+    padding: 11px 12px;
+  }
+
+  .floatingCardTop {
+    top: 5%;
+    right: 0;
+  }
+
+  .floatingCardBottom {
+    bottom: 5%;
+    left: 0;
+  }
+
+  .floatingIcon {
+    flex-basis: 35px;
+    width: 35px;
+    height: 35px;
+    font-size: 1rem;
+  }
+
+  .floatingCard strong {
+    font-size: 0.75rem;
+  }
+
+  .floatingCard small {
+    font-size: 0.67rem;
+  }
+
+  .heroTrust {
+    gap: 12px 18px;
+  }
+
+  .heroTrust span {
+    font-size: 0.78rem;
+  }
+
+  .pricingIntro {
+    padding: 38px 0 20px;
+  }
+
+  .introPanel {
+    flex-wrap: wrap;
+    gap: 17px;
+    padding: 23px;
+  }
+
+  .introIcon {
+    flex-basis: 50px;
+    width: 50px;
+    height: 50px;
+    font-size: 1.35rem;
+  }
+
+  .introContent {
+    flex-basis: calc(100% - 70px);
+  }
+
+  .introContent h2 {
+    font-size: 1.35rem;
+  }
+
+  .introContent p {
+    font-size: 0.88rem;
+  }
+
+  .introButton {
+    width: 100%;
+  }
+
+  .servicesSection,
+  .factorsSection,
+  .processSection,
+  .faqSection {
+    padding-block: 62px;
+  }
+
+  .servicesGrid {
+    gap: 16px;
+  }
+
+  .serviceCard {
+    min-height: 0;
+    padding: 21px;
+  }
+
+  .serviceCard h3 {
+    font-size: 1.05rem;
+  }
+
+  .serviceDescription {
+    font-size: 0.87rem;
+  }
+
+  .serviceCardFooter {
+    align-items: stretch;
+  }
+
+  .quoteLabel {
+    align-self: center;
+  }
+
+  .serviceButton {
+    width: 100%;
+  }
+
+  .factorsGrid {
+    gap: 15px;
+  }
+
+  .factorCard {
+    padding: 21px;
+  }
+
+  .factorCard p {
+    font-size: 0.84rem;
+  }
+
+  .factorsNote {
+    align-items: flex-start;
+    padding: 20px;
+  }
+
+  .factorsNote p {
+    flex-basis: calc(100% - 40px);
+    min-width: 0;
+  }
+
+  .factorsNote .textLink {
+    margin-left: 38px;
+  }
+
+  .processGrid {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 15px;
+  }
+
+  .processCard {
+    padding: 23px;
+  }
+
+  .processNumber {
+    width: 49px;
+    height: 49px;
+    margin-bottom: 18px;
+    font-size: 1.12rem;
+  }
+
+  .processConnector {
+    display: none;
+  }
+
+  .faqLayout {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 32px;
+  }
+
+  .faqIntro {
+    position: static;
+  }
+
+  .faqIntro > h2 {
+    font-size: clamp(2rem, 7vw, 2.7rem);
+  }
+
+  .faqContactCard {
+    margin-top: 25px;
+  }
+
+  .faqQuestion {
+    min-height: 65px;
+    padding: 17px;
+    font-size: 0.9rem;
+  }
+
+  .faqAnswer {
+    padding: 0 17px 20px;
+  }
+
+  .faqAnswer p {
+    font-size: 0.87rem;
+  }
+
+  .finalCtaSection {
+    padding: 50px 0 65px;
+  }
+
+  .finalCta {
+    min-height: 0;
+    padding: 34px 27px;
+    border-radius: 16px;
+  }
+
+  .finalCtaContent h2 {
+    font-size: clamp(1.9rem, 7vw, 2.7rem);
+  }
+
+  .finalCtaVisual {
+    display: none;
+  }
+}
+
+/* =========================================================
+   SMALL MOBILE
+========================================================= */
+
+@media (max-width: 480px) {
+  .sectionContainer {
+    width: calc(100% - 30px);
+  }
+
+  .heroInner {
+    width: calc(100% - 30px);
+    padding-top: 34px;
+  }
+
+  .breadcrumb {
+    gap: 8px;
+    font-size: 0.76rem;
+  }
+
+  .heroContent h1 {
+    font-size: clamp(2.1rem, 10vw, 2.8rem);
+  }
+
+  .heroDescription {
+    font-size: 0.92rem;
+    line-height: 1.8;
+  }
+
+  .heroActions {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .heroActions > a {
+    width: 100%;
+  }
+
+  .heroVisual {
+    min-height: 265px;
+  }
+
+  .dnaVisual {
+    width: 170px;
+  }
+
+  .dnaOrbit {
+    width: 215px;
+    height: 215px;
+  }
+
+  .dnaOrbitTwo {
+    width: 250px;
+    height: 180px;
+  }
+
+  .floatingCard {
+    max-width: 178px;
+    padding: 9px 10px;
+  }
+
+  .floatingCardTop {
+    right: -3px;
+  }
+
+  .floatingCardBottom {
+    left: -3px;
+  }
+
+  .floatingCard strong {
+    font-size: 0.7rem;
+  }
+
+  .floatingCard small {
+    font-size: 0.62rem;
+  }
+
+  .heroTrust {
+    flex-direction: column;
+    gap: 11px;
+  }
+
+  .introPanel {
+    padding: 19px;
+  }
+
+  .introContent {
+    flex-basis: 100%;
+  }
+
+  .servicesGrid,
+  .factorsGrid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .serviceCard {
+    padding: 23px;
+  }
+
+  .serviceCardFooter {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 12px;
+  }
+
+  .quoteLabel {
+    align-self: auto;
+  }
+
+  .serviceButton {
+    justify-content: center;
+  }
+
+  .factorCard {
+    padding: 23px;
+  }
+
+  .factorsNote {
+    gap: 12px;
+  }
+
+  .factorsNote p {
+    flex-basis: calc(100% - 35px);
+  }
+
+  .factorsNote .textLink {
+    margin-left: 35px;
+  }
+
+  .finalCta {
+    padding: 29px 21px;
+  }
+
+  .finalCtaButton {
+    width: 100%;
+    padding-inline: 12px;
+    font-size: 0.85rem;
+  }
+
+  .finalCtaFootnote {
+    align-items: flex-start;
+    font-size: 0.76rem;
+  }
+}
+
+/* =========================================================
+   KEYBOARD ACCESSIBILITY
+========================================================= */
+
+@media (hover: none) {
+  .serviceCard:hover,
+  .factorCard:hover,
+  .processCard:hover {
+    transform: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .pricingPage *,
+  .pricingPage *::before,
+  .pricingPage *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+@media (prefers-contrast: more) {
+  .serviceCard,
+  .factorCard,
+  .processCard,
+  .faqItem,
+  .faqContactCard {
+    border-color: #8090a3;
+  }
+}

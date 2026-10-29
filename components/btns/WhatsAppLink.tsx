@@ -1,18 +1,22 @@
 import Link from "next/link";
-import { ReactNode } from "react";
+import type { ReactNode } from "react";
 
-interface ContainerProps {
+interface WhatsAppLinkProps {
   children: ReactNode;
   className?: string;
-  href: string;
-  target?: string;
-  rel?: string;
+  message: string;
 }
 
-export default function WhatsAppLink({ children, className }: ContainerProps) {
+export default function WhatsAppLink({
+  children,
+  className,
+  message,
+}: WhatsAppLinkProps) {
+  const href = `https://wa.me/263719428436?text=${encodeURIComponent(message)}`;
+
   return (
     <Link
-      href="https://wa.me/263719428436"
+      href={href}
       className={className}
       target="_blank"
       rel="noopener noreferrer"

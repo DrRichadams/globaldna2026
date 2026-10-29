@@ -9,8 +9,8 @@ import styles from "./navigation.module.css";
 
 const navLinks = [
   { label: "Categories", href: "#categories" },
-  { label: "Pricing", href: "#pricing" },
-  { label: "Contact", href: "#contact" },
+  { label: "Pricing", href: "/pricing" },
+  { label: "Contact", href: "/contact" },
 ];
 
 export default function Navigation() {
