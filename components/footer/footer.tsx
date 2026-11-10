@@ -128,7 +128,11 @@ export default function Footer() {
           </p>
 
           <div className={styles.ctaActions}>
-            <WhatsAppLink href="/contact" className={styles.primaryButton}>
+            <WhatsAppLink
+              // href="/contact"
+              className={styles.primaryButton}
+              message="I need your assistance"
+            >
               Get in Touch
               <FiArrowRight aria-hidden="true" />
             </WhatsAppLink>

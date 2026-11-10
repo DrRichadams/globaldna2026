@@ -83,7 +83,7 @@ export default function Banner() {
           </Link> */}
           <WhatsAppLink
             message="Hello, I'm interested in your products."
-            href="https://wa.me/263719428436"
+            // href="https://wa.me/263719428436"
             className={styles.primary_button}
             // target="_blank"
             // rel="noopener noreferrer"

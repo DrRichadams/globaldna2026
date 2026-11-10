@@ -5,16 +5,16 @@ interface WhatsAppLinkProps {
   children: ReactNode;
   className?: string;
   message: string;
-  href: string;
+  // href: string;
 }
 
 export default function WhatsAppLink({
   children,
   className,
   message,
-  href,
+  // href,
 }: WhatsAppLinkProps) {
-  // const href = `https://wa.me/263719428436?text=${encodeURIComponent(message)}`;
+  const href = `https://wa.me/263719428436?text=${encodeURIComponent(message)}`;
 
   return (
     <Link
