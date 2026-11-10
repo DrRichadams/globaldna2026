@@ -82,10 +82,11 @@ export default function Banner() {
             <span>Chat with us on WhatsApp</span>
           </Link> */}
           <WhatsAppLink
+            message="Hello, I'm interested in your products."
             href="https://wa.me/263719428436"
             className={styles.primary_button}
-            target="_blank"
-            rel="noopener noreferrer"
+            // target="_blank"
+            // rel="noopener noreferrer"
           >
             <MessageCircle size={20} aria-hidden="true" />
             <span>Chat with us on WhatsApp</span>
